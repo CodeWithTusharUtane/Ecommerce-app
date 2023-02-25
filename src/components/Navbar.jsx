@@ -1,9 +1,58 @@
-import React, { useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import {auth} from '../firebase/config'
+import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from "../redux/slice/authSlice";
+import ShowOnLogin, { ShowOnLogout } from "./HiddenLinks";
+
+
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [uName, setUName] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // This is to Monitor currently signed in User.
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        // const uid = user.uid;
+        // console.log(user.displayName)
+
+        if(user.displayName == null){
+          const u1 = user.email.slice(0, -10)
+          const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
+          // console.log(uName)
+          setUName(uName)
+        }else{
+          setUName(user.displayName)
+        }
+
+        dispatch(SET_ACTIVE_USER({
+          email: user.email,
+          userName: user.displayName ? user.displayName : uName,
+          userId: user.uid
+        }))
+      }else{
+         setUName("")
+         dispatch(REMOVE_ACTIVE_USER())
+      }
+    })
+  }, [dispatch, uName])
+
+  const logoutUser = () => {
+    signOut(auth).then(()=>{
+      toast.success("Logout successfully")
+      navigate("/")
+    }).catch((error)=>{
+      toast.error(error.message)
+    })
+  }
 
   return (
     <div>
@@ -35,11 +84,13 @@ const Navbar = () => {
             <span className="font-bold">Headphones-Hub</span>
           </div>
           <div className="text-center mt-8 text-xl md:text-3xl md:mt-14">
-            <div className="mt-5 md:mt-8">Home</div>
-            <div className="mt-5 md:mt-8">Products</div>
-            <div className="mt-5 md:mt-8">Cart</div>
-            <div className="mt-5 md:mt-8">Login</div>
-            <div className="mt-5 md:mt-8">Sign Up</div>
+            <div className="mt-5 md:mt-8"><NavLink to='/'>Home</NavLink></div>
+            {/* <div className="mt-5 md:mt-8"><NavLink to='/products'>Products</NavLink></div> */}
+            <div className="mt-5 md:mt-8"><NavLink to='/cart'>Cart</NavLink></div>
+            <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
+            <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>
+            <div className="mt-5 md:mt-8"><ShowOnLogin><NavLink to='/'  onClick={logoutUser}>Logout</NavLink></ShowOnLogin></div>
+            <ShowOnLogin><div className="mt-5 md:mt-8">Hello, {uName}</div></ShowOnLogin>
           </div>
         </div>
       </div>
@@ -48,11 +99,13 @@ const Navbar = () => {
           <div className=" bg-[#E3DFFD] text-[#2B3467] w-full flex items-center justify-between">
             <div className="text-4xl  ml-7 font-bold">Headphones-Hub</div>
             <div className="flex items-center text-2xl mr-5 space-x-7 font-semiboldbold">
-              <div>Home</div>
-              <div>Products</div>
-              <div>Cart</div>
-              <div>Login</div>
-              <div>Sign Up</div>
+              <div> <NavLink to='/'>Home</NavLink></div>
+              {/* <div><NavLink to='/products'>Products</NavLink></div> */}
+              <div><NavLink to='/cart'>Cart</NavLink></div>
+              <div><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
+              <div><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>
+              <ShowOnLogin><div>Hello, {uName}</div></ShowOnLogin>
+              <div><ShowOnLogin><NavLink to='/' onClick={logoutUser}>Logout</NavLink></ShowOnLogin></div>
             </div>
           </div>
       </div>

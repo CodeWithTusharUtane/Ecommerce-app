@@ -1,9 +1,8 @@
-import React from 'react'
-import Header from '../constants/Header'
+import {gaming} from '../data/categories/gaming'
 const Home = () => {
   return (
     <div>
-      <Header/>
+      
     </div>
   )
 }
