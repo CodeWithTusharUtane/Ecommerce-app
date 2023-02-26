@@ -3,6 +3,7 @@ import { neckband } from '../data/neckbandData'
 import { headphones } from '../data/headphonesData'
 import { buds } from '../data/budsData'
 import { watch } from '../data/watchData'
+import { all } from '../data/allData'
 
 const Products = () => {
   return (
@@ -21,7 +22,21 @@ const Products = () => {
       </div>
           
 
-          <div className='grid md:grid-cols-3 lg:grid-cols-4 '>
+      <div className='grid md:grid-cols-3 lg:grid-cols-4 '>
+
+        {
+          all.map((item)=>{
+            return(
+              <div>
+                <img src={item.image} alt="" />
+              </div>
+            )
+          })
+        }
+      </div>
+
+
+          {/* <div className='grid md:grid-cols-3 lg:grid-cols-4 '>
             {
               neckband.map((item)=>{
                 return(
@@ -75,7 +90,7 @@ const Products = () => {
                 )
               })
             }
-          </div>
+          </div> */}
     </div>
   )
 }

@@ -5,7 +5,7 @@ import p4 from '../assests/neckband/4.png'
 import p5 from '../assests/neckband/5.png'
 import p6 from '../assests/neckband/6.png'
 import p7 from '../assests/neckband/7.png'
-import p8 from '../assests/neckband/8.png'
+
 import p9 from '../assests/neckband/9.png'
 import p10 from '../assests/neckband/10.png'
 
