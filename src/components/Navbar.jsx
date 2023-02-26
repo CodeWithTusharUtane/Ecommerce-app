@@ -1,6 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -58,7 +59,7 @@ const Navbar = () => {
     <div>
       <div className="bg-[#E3DFFD] text-[#2B3467] h-10 flex items-center justify-between font-be md:h-16 lg:hidden">
         <div className="text-xl ml-3 md:text-3xl md:ml-5">
-          <span className="font-bold">Headphones-Hub</span>
+          <span className="font-bold">Eshopping-Hub</span>
         </div>
 
         <div className="mr-3 md:mr-5">
@@ -85,7 +86,7 @@ const Navbar = () => {
           </div>
           <div className="text-center mt-8 text-xl md:text-3xl md:mt-14">
             <div className="mt-5 md:mt-8"><NavLink to='/'>Home</NavLink></div>
-            {/* <div className="mt-5 md:mt-8"><NavLink to='/products'>Products</NavLink></div> */}
+            <div className="mt-5 md:mt-8"><NavLink to='/products'>Products</NavLink></div>
             <div className="mt-5 md:mt-8"><NavLink to='/cart'>Cart</NavLink></div>
             <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
             <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>
@@ -97,15 +98,15 @@ const Navbar = () => {
       {/* Desktop View */}
       <div className="hidden lg:flex h-16">
           <div className=" bg-[#E3DFFD] text-[#2B3467] w-full flex items-center justify-between">
-            <div className="text-4xl  ml-7 font-bold">Headphones-Hub</div>
+            <div className="text-4xl  ml-7 font-bold">Eshopping-Hub</div>
             <div className="flex items-center text-2xl mr-5 space-x-7 font-semiboldbold">
               <div> <NavLink to='/'>Home</NavLink></div>
-              {/* <div><NavLink to='/products'>Products</NavLink></div> */}
-              <div><NavLink to='/cart'>Cart</NavLink></div>
+              <div><NavLink to='/products'>Products</NavLink></div>
+              <div className=""><NavLink to='/cart' className='flex items-center '>Cart <AiOutlineShoppingCart className="ml-2"/> </NavLink></div>
               <div><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
               <div><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>
               <ShowOnLogin><div>Hello, {uName}</div></ShowOnLogin>
-              <div><ShowOnLogin><NavLink to='/' onClick={logoutUser}>Logout</NavLink></ShowOnLogin></div>
+              <ShowOnLogin><div className="bg-[#2B3467] text-[#E3DFFD] p-1 rounded-md px-2"><NavLink to='/' onClick={logoutUser}>Logout</NavLink></div></ShowOnLogin>
             </div>
           </div>
       </div>

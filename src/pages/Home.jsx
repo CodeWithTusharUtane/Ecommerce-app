@@ -1,8 +1,9 @@
-import {gaming} from '../data/categories/gaming'
 const Home = () => {
   return (
     <div>
-      
+      <div className='w-full'>
+
+      </div>
     </div>
   )
 }

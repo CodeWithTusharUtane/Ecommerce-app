@@ -18,7 +18,7 @@ const App = () => {
     <BrowserRouter>
     <ToastContainer/>
       <Header/>
-        <div className="w-full bg-black h-1"></div>
+      <div className="w-full bg-black h-1"></div>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
