@@ -24,7 +24,7 @@ import p20 from '../assests/neckband/4.png'
 import p21 from '../assests/neckband/5.png'
 import p22 from '../assests/neckband/6.png'
 import p23 from '../assests/neckband/7.png'
-import p24 from '../assests/neckband/8.png'
+// import p24 from '../assests/neckband/8.png'
 import p25 from '../assests/neckband/9.png'
 //watch
 import p26 from '../assests/watch/1.png'
@@ -49,245 +49,245 @@ export const all = [
         id: 1,
         name:"Wireless Buds 1",
         image:p1,
-        price:""
+        price:"₹5555"
     },
     
     {
         id: 22,
         name:"Neckband 6",
         image:p22,
-        price:""
+        price:"₹5555"
     },
     {
         id: 3,
         name:"Wireless Buds 3",
         image:p3,
-        price:""
+        price:"₹5555"
     },
     
     {
         id: 5,
         name:"Wireless Buds 5",
         image:p5,
-        price:""
+        price:"₹5555"
     },
     {
         id: 6,
         name:"Wireless Buds 6",
         image:p6,
-        price:""
+        price:"₹5555"
     },
     {
         id: 7,
         name:"Wireless Buds 7",
         image:p7,
-        price:""
+        price:"₹5555"
     },
     {
         id: 8,
         name:"Wireless Buds 8",
         image:p8,
-        price:""
+        price:"₹5555"
     },
     {
         id: 9,
         name:"Wireless Buds 9",
         image:p9,
-        price:""
+        price:"₹5555"
     },
     {
         id: 2,
         name:"Wireless Buds 2",
         image:p2,
-        price:""
+        price:"₹5555"
     },
     {
         id: 4,
         name:"Wireless Buds 4",
         image:p4,
-        price:""
+        price:"₹5555"
     },
     {
         id: 10,
         name:"Wireless Buds 10",
         image:p10,
-        price:""
+        price:"₹5555"
     },
     {
         id: 11,
         name:"Wireless Buds 11",
         image:p11,
-        price:""
+        price:"₹5555"
     },
     {
         id: 12,
         name:"Wireless Buds 12",
         image:p12,
-        price:""
+        price:"₹5555"
     },
     {
         id: 13,
         name:"Wireless Buds 13",
         image:p13,
-        price:""
+        price:"₹5555"
     },
     {
         id: 14,
         name:"Headphones 1",
         image:p14,
-        price:""
+        price:"₹5555"
     },
     {
         id: 15,
         name:"Headphones 2",
         image:p15,
-        price:""
+        price:"₹5555"
     },
     {
         id: 16,
         name:"Headphones 3",
         image:p16,
-        price:""
+        price:"₹5555"
     },
     {
         id: 17,
         name:"Neckband 1",
         image:p17,
-        price:""
+        price:"₹5555"
     },
     {
         id: 18,
         name:"Neckband 2",
         image:p18,
-        price:""
+        price:"₹5555"
     },
     {
         id: 19,
         name:"Neckband 3",
         image:p19,
-        price:""
+        price:"₹5555"
     },
     {
         id: 20,
         name:"Neckband 4",
         image:p20,
-        price:""
+        price:"₹5555"
     },
     {
         id: 40,
         name:"Watch 15",
         image:p40,
-        price:""
+        price:"₹5555"
     },
     {
         id: 21,
         name:"Neckband 5",
         image:p21,
-        price:""
+        price:"₹5555"
     },
     
     {
         id: 23,
         name:"Neckband 7",
         image:p23,
-        price:""
+        price:"₹5555"
     },
-    {
-        id: 24,
-        name:"Neckband 8",
-        image:p24,
-        price:""
-    },
+    // {
+    //     id: 24,
+    //     name:"Neckband 8",
+    //     image:p24,
+    //     price:"₹5555"
+    // },
     
     {
         id: 26,
         name:"Watch 1",
         image:p26,
-        price:""
+        price:"₹5555"
     },
     {
         id: 27,
         name:"Watch 2",
         image:p27,
-        price:""
+        price:"₹5555"
     },
     {
         id: 28,
         name:"Watch 3",
         image:p28,
-        price:""
+        price:"₹5555"
     },
     {
         id: 29,
         name:"Watch 4",
         image:p29,
-        price:""
+        price:"₹5555"
     },
     {
         id: 30,
         name:"Watch 5",
         image:p30,
-        price:""
+        price:"₹5555"
     },
     {
         id: 25,
         name:"Neckband 9",
         image:p25,
-        price:""
+        price:"₹5555"
     },
     {
         id: 31,
         name:"Watch 6",
         image:p31,
-        price:""
+        price:"₹5555"
     },
     {
         id: 32,
         name:"Watch 7",
         image:p32,
-        price:""
+        price:"₹5555"
     },
     {
         id: 33,
         name:"Watch 8",
         image:p33,
-        price:""
+        price:"₹5555"
     },
     {
         id: 34,
         name:"Watch 9",
         image:p34,
-        price:""
+        price:"₹5555"
     },
     {
         id: 35,
         name:"Watch 10",
         image:p35,
-        price:""
+        price:"₹5555"
     },
     {
         id: 36,
         name:"Watch 11",
         image:p36,
-        price:""
+        price:"₹5555"
     },
     {
         id: 37,
         name:"Watch 12",
         image:p37,
-        price:""
+        price:"₹5555"
     },
     {
         id: 38,
         name:"Watch 13",
         image:p38,
-        price:""
+        price:"₹5555"
     },
     {
         id: 39,
         name:"Watch 14",
         image:p39,
-        price:""
+        price:"₹5555"
     },
     
 ]
