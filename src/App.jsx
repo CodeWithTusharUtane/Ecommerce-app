@@ -11,6 +11,8 @@ import Header from './constants/Header'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddProductThrough from './pages/AddProductThrough'
+
 
 const App = () => {
   return (
@@ -26,7 +28,9 @@ const App = () => {
         <Route path='/products' element={<Products/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/reset' element={<ResetPassword/>}/>
+        <Route path='/addProductPage' element={<AddProductThrough/>}/>
         <Route path='/singleproductpage/:id' element={<SingleProductPage/>}/>
+        
       </Routes>
     </BrowserRouter>
 
