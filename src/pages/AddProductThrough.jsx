@@ -8,12 +8,12 @@ import { toast } from "react-toastify";
 
 const AddProductThrough = () => {
   const [imageUpload, setImageUpload] = useState(null);
-  const [imageList, setImageList] = useState("");
+  // const [imageList, setImageList] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
 
-  const imageListRef = ref(storage, "images");
+  // const imageListRef = ref(storage, "images");
   const productRef = collection(database, "products");
   
   const handleSubmit =  (e) => {
