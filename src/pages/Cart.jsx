@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
 import { auth, database } from '../firebase/config';
 
 const Cart = () => {

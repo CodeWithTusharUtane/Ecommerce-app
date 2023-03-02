@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -34,7 +34,7 @@ const Products = () => {
   // console.log(uid)
 
   let Product;
-  const AddToCart = (item) => {
+  const AddToCart = async(item) => {
     if(uid!=null){
       // console.log(item.pname);
       Product = item;
@@ -43,10 +43,13 @@ const Products = () => {
       const prices = Product.pprice.slice(2)
       Product["TotalProductPrice"] = Product.qty*prices;
       const productRef = collection(database, "cart"+uid);
+      const citem = item.id;
+      // await addDoc(productRef, citem , {Product}).then(()=>{
+      //   toast.success("Added to Cart")
+      //   // toast.success(item.id)
+      // })
       
-      addDoc(productRef, {Product}).then(()=>{
-        toast.success("Added to Cart")
-      })
+      await setDoc(doc(database, "cart"+uid , item.id), {Product});
     }else{
       navigate("/login")
     }
