@@ -4,14 +4,13 @@ import SingleProductPage from './pages/SingleProductPage'
 import Login from './pages/Login'
 import Signin from './pages/Signin'
 import Home from './pages/Home'
-import Products from './pages/Products'
-import Cart from './pages/Cart'
 import ResetPassword from './pages/ResetPassword'
 import Header from './constants/Header'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AddProductThrough from './pages/AddProductThrough'
+import Admin from './components/Admin/Admin'
+import AdminOnlyRoute from './components/Admin/AdminOnlyRoute'
 
 
 const App = () => {
@@ -25,12 +24,14 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signin' element={<Signin/>}/>
-        <Route path='/products' element={<Products/>}/>
-        <Route path='/cart' element={<Cart/>}/>
         <Route path='/reset' element={<ResetPassword/>}/>
-        <Route path='/addProductPage' element={<AddProductThrough/>}/>
         <Route path='/singleproductpage/:id' element={<SingleProductPage/>}/>
         
+        <Route path='/admin/*' element={
+          <AdminOnlyRoute>
+            <Admin/>
+          </AdminOnlyRoute>
+        }/>
       </Routes>
     </BrowserRouter>
 

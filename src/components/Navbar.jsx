@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import {auth} from '../firebase/config'
 import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from "../redux/slice/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "./HiddenLinks";
+import { AdminOnlyLink } from "./Admin/AdminOnlyRoute";
 
 
 
@@ -85,8 +86,10 @@ const Navbar = () => {
             <span className="font-bold">Headphones-Hub</span>
           </div>
           <div className="text-center mt-8 text-xl md:text-3xl md:mt-14">
+            <AdminOnlyLink>
+            <div className="mt-5 md:mt-8 bg-[#2b3467] text-[#e3dffd] p-1 px-2 rounded-md"><NavLink to='/Admin/home'>Admin</NavLink></div>
+            </AdminOnlyLink>
             <div className="mt-5 md:mt-8"><NavLink to='/'>Home</NavLink></div>
-            <div className="mt-5 md:mt-8"><NavLink to='/products'>Products</NavLink></div>
             <div className="mt-5 md:mt-8"><NavLink to='/cart'>Cart</NavLink></div>
             <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
             <div className="mt-5 md:mt-8"><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>
@@ -100,8 +103,8 @@ const Navbar = () => {
           <div className=" bg-[#E3DFFD] text-[#2B3467] w-full flex items-center justify-between">
             <div className="text-4xl  ml-7 font-bold">Eshopping-Hub</div>
             <div className="flex items-center text-2xl mr-5 space-x-7 font-semiboldbold">
+              <AdminOnlyLink><div className="bg-[#2b3467] text-[#e3dffd] p-1 px-2 rounded-md"> <NavLink to='/Admin/home'>Admin</NavLink></div></AdminOnlyLink>
               <div> <NavLink to='/'>Home</NavLink></div>
-              <div><NavLink to='/products'>Products</NavLink></div>
               <div className=""><NavLink to='/cart' className='flex items-center '>Cart <AiOutlineShoppingCart className="ml-2"/> </NavLink></div>
               <div><ShowOnLogout><NavLink to='/login'>Login</NavLink></ShowOnLogout></div>
               <div><ShowOnLogout><NavLink to='/signin'>Sign Up</NavLink></ShowOnLogout></div>

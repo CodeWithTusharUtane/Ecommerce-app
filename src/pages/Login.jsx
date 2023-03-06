@@ -47,8 +47,8 @@ const Login = () => {
   }
   return (
     <>
-      <div className="w-full h-screen pb-10 md:pb-36 flex items-center font-be justify-center bg-[#E3DFFD] text-[#2B3467]">
         {loading && <Loader/>}
+      <div className="w-full h-screen pb-10 md:pb-36 flex items-center font-be justify-center bg-[#E3DFFD] text-[#2B3467]">
         <div className=" text-center  md:mt-16 lg:mt-24 md:border-2 border-black md:p-5 md:rounded-xl">
           <h2 className="text-2xl text-[#2B3467] ">Login</h2>
           <form onSubmit={loginUser} className="text-black ">
