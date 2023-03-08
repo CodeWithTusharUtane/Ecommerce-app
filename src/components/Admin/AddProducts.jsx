@@ -1,9 +1,11 @@
-import { addDoc, collection, Timestamp } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { database, storage } from "../../firebase/config";
+import { selectProducts } from "../../redux/slice/productSlice";
 
 const categories = [
   { id: 1, name: "Watch" },
@@ -12,17 +14,38 @@ const categories = [
   { id: 4, name: "Headphones" },
 ];
 
+const initialState = {
+  name: "",
+  imageUrl: "",
+  price: 0,
+  category: "",
+  brand: "",
+  desc: "",
+}
+
 const AddProducts = () => {
-  const [product, setProduct] = useState({
-    name: "",
-    imageUrl: "",
-    price: 0,
-    category: "",
-    brand: "",
-    desc: "",
+  const {id} = useParams();
+  // console.log(id)
+  const products = useSelector(selectProducts)
+  const productEdit = products.find((item)=> item.id === id)
+  const [product, setProduct] = useState(()=>{
+    const newState = detectForm(id, 
+      {...initialState},
+      productEdit  
+     )
+     return newState
   });
 
   const navigate = useNavigate()
+  
+  // console.log(productEdit)
+
+  function detectForm(id, f1, f2){
+    if(id === "ADD"){
+      return f1;
+    }
+    return f2;
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -64,11 +87,37 @@ const AddProducts = () => {
     }
   };
 
+  const editProduct = (e) => {
+    e.preventDefault();
+    
+    if(product.imageUrl !== productEdit.imageUrl){
+      const storageRef = ref(storage, productEdit.imageUrl);
+      deleteObject(storageRef)
+    }
+
+    try {
+      setDoc(doc(database, "products", id),{
+        name: product.name,
+        imageUrl: product.imageUrl,
+        price: Number(product.price),
+        category: product.category,
+        brand: product.brand,
+        desc: product.desc,
+        createdAt: productEdit.createdAt,
+        editedAt: Timestamp.now().toDate()
+      })
+      toast.success("Product Edited Successfully")
+      navigate("/admin/all-products")
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   return (
     <div>
-      <h1>Add New Product</h1>
+      <h2>{detectForm(id, "Add new Product", "Edit Product")}</h2>
       <div>
-        <form onSubmit={addProduct}>
+        <form onSubmit={detectForm(id, addProduct, editProduct)}>
           <label>Product Name: </label>
           <input
             type="text"

@@ -112,7 +112,7 @@ const ShowProduct = () => {
                     <td>{category}</td>
                     <td>{`₹ ${price}`}</td>
                     <td className='flex ml-9'>
-                      <Link o='/admin/add-products'><FaEdit size={20} color="green"/></Link>
+                      <Link to={`/admin/add-products/${id}`}><FaEdit size={20} color="green"/></Link>
                       &nbsp;
                         <FaTrashAlt size={18} color="red" onClick={() => confirmDelete(id, imageUrl)}/>
                     </td>

@@ -16,7 +16,7 @@ const Navbar = () => {
             <NavLink to='/admin/all-products'>
                 Show Products
             </NavLink>
-            <NavLink to='/admin/add-products'>
+            <NavLink to='/admin/add-products/ADD'>
                 Add Product
             </NavLink>
             <NavLink to='/admin/order'>
