@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FILTER_BY_SEARCH } from '../../redux/slice/filterSlice'
+import { FILTER_BY_SEARCH, selectFilterProduct } from '../../redux/slice/filterSlice'
 import Search from '../Search'
 import ProductItem from './ProductItem'
+
 
 const ProductList = ({products}) => {
 
   const [search, setSearch] = useState("")
   const dispatch = useDispatch();
+  const filteredProducts = useSelector(selectFilterProduct)
   
   useEffect(()=>{
     dispatch(FILTER_BY_SEARCH({products, search}))  
@@ -18,7 +20,7 @@ const ProductList = ({products}) => {
     <div>
         <div>
            <p>
-            <b>10 </b> Products Found
+            <b>{filteredProducts.length} </b> Products Found
            </p>
         </div>
         <div>
@@ -40,7 +42,7 @@ const ProductList = ({products}) => {
         <p>No Products Found!!</p>
       ) : (
         <>
-          {products.map((item)=>{
+          {filteredProducts.map((item)=>{
             return(
               <div key={item.id}>
                 <ProductItem {...item} product={item}/>
