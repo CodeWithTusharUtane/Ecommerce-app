@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admin from './components/Admin/Admin'
 import AdminOnlyRoute from './components/Admin/AdminOnlyRoute'
+import ProductDetails from './components/Products/ProductDetails'
 
 
 const App = () => {
@@ -25,13 +26,15 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/reset' element={<ResetPassword/>}/>
-        <Route path='/singleproductpage/:id' element={<SingleProductPage/>}/>
         
         <Route path='/admin/*' element={
           <AdminOnlyRoute>
             <Admin/>
           </AdminOnlyRoute>
         }/>
+        
+        <Route path='/singleproductpage/:id' element={<ProductDetails/>}/>
+
       </Routes>
     </BrowserRouter>
 
