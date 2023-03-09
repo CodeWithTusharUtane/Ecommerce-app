@@ -1,7 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { ADD_TO_CART } from '../../redux/slice/cartSlice'
 
 const ProductItem = ({product, id, name, price, desc, imageUrl, brand}) => {
+
+  const dispatch = useDispatch();
+
+  const addToCart = (product) => {
+    dispatch(ADD_TO_CART(product))
+  }
+
   return (
     <div>
       <Link to={`/singleproductpage/${id}`}>
@@ -14,7 +23,7 @@ const ProductItem = ({product, id, name, price, desc, imageUrl, brand}) => {
             {`$ ${price}`}  
             <h4>{name}</h4>
           </div>  
-          <button>Add to Cart</button>
+          <button onClick={()=> addToCart(product)}>Add to Cart</button>
         </div>
     </div>
   )
