@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import SingleProductPage from './pages/SingleProductPage'
 import Login from './pages/Login'
 import Signin from './pages/Signin'
 import Home from './pages/Home'
@@ -12,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Admin from './components/Admin/Admin'
 import AdminOnlyRoute from './components/Admin/AdminOnlyRoute'
 import ProductDetails from './components/Products/ProductDetails'
+import Cart from './pages/Cart'
 
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/reset' element={<ResetPassword/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         
         <Route path='/admin/*' element={
           <AdminOnlyRoute>
